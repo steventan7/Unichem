@@ -1,0 +1,61 @@
+{
+    "active_ingredients": "Solifenacin",
+    "application_number": null,
+    "as_of_date": "",
+    "case_quantity": 180,
+    "description": "Solifenacin Succinate 10mg 90CT",
+    "dosage_form": "Tablet",
+    "generic_equivalent": "Vesicare",
+    "gtin_14": [
+        "00329300329193",
+        "30329300329194",
+        "40329300329191"
+    ],
+    "inner_packet_quantity": 15,
+    "invoice_cost": 30.0,
+    "item_packing": [
+        [
+            0.079,
+            1.56,
+            1.56,
+            3.26,
+            0.005,
+            1
+        ],
+        [
+            0.88,
+            7.86,
+            4.99,
+            3.26,
+            0.07,
+            15
+        ],
+        [
+            12.58,
+            16.51,
+            10.72,
+            10.61,
+            1.08,
+            180
+        ],
+        [
+            341.71,
+            33.01,
+            42.92,
+            31.83,
+            26.09,
+            4320
+        ]
+    ],
+    "ndc": "2930032919",
+    "ndc_selling_unit": "1 Bottle of 90 Tablets",
+    "product_color": "Light pink",
+    "product_imprint": "S1: \"U\"\nS2: \"329\"",
+    "product_shape": "Capsule",
+    "propriety_name": "Solifenacin SuccinateTablets",
+    "regular_cost": 1248.48,
+    "shelf_life": "24",
+    "size": "90CT",
+    "strength": "10mg",
+    "upc": "3 29300 32919 3"
+}

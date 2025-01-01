@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Read Excel File</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+{% endblock %}
+
+{% block body %}
+<center>
+  <img style="padding-top: 200px" src="{{ url_for('static', filename='Unichem.jpeg') }}" alt="Unichem logo" height = "100" widht="200"/>
+  <h1>Drop in an outdated HDA Form</h1>
+    <form id="uploadForm">
+      <input type="file" id="fileInput" name="excelFile" accept=".xlsx, .xls, .xlsm" required>
+      <label for="toggleSelect">Select company:</label>
+      <select id="toggleSelect" name="option">
+        <option value="UNICHEM">Unichem</option>
+        <option value="BAYSHORE">Bayshore</option>
+<!--        <option value="IPCA">Ipca</option>-->
+      </select>
+      <button type="submit" id="upload">Upload</button>
+    </form>
+    <script>
+      document.getElementById("uploadForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const fileInput = document.getElementById("fileInput");
+        const toggleSelect = document.getElementById("toggleSelect");
+        if (fileInput.files.length === 0) {
+          alert("Please upload a valid HDA file.");
+          return;
+        }
+        const formData = new FormData();
+        formData.append("excelFile", fileInput.files[0]);
+        formData.append("company", toggleSelect.value);
+
+        try {
+          const response = await fetch("/upload", {
+            method: "POST",
+            body: formData,
+          });
+          if (response.ok) {
+            alert("HDA file uploaded successfully! \nPlease click the download button below!");
+            document.getElementById("download").disabled = false;
+          } else {
+            alert("HDA file upload failed! Please make sure an outdated HDA form is uploaded and the proper company is provided!");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("An error occurred while uploading the file.");
+        }
+      });
+    </script>
+    <br>
+    <a href="{{ url_for('download_file') }}">
+            <button id="download" disabled>Download File</button>
+    </a>
+  <h6>Created by Steven Tan</h6>
+  </center>
+{{ message }}
+{% endblock %}
